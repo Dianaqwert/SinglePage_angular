@@ -1,0 +1,27 @@
+<!--
+  Muestra todos los libros que coincidan con la búsqueda en tiempo real.
+  librosEncontrados: Libro[] obtenido en el componente a partir de buscarLibros().
+-->
+<!--barra de busqueda-->
+@if (librosEncontrados.length > 0) {
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
+    @for (libro of librosEncontrados; track libro) {
+      <div class="col">
+        <div class="card h-100 text-center"
+             style="background-color: transparent; border: none;">
+          <img [src]="libro.image"
+               class="card-img-top libro-img"
+               alt="{{ libro.title }}" style="border-radius: 0%;">
+          <div class="card-body">
+            <h6 class="card-title">{{ libro.title }}</h6>
+            <p class="card-text text-muted">{{ libro.author }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+} @else {
+  <div class="text-center mt-4">
+    <h4>No hay resultados para “{{ nombreLibro }}”</h4>
+  </div>
+}

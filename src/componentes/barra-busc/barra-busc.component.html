@@ -1,0 +1,13 @@
+<div class="container-fluid justify-content-center mb-5" style="width: 600px;">
+    <form class="d-flex" role="search">
+      <input
+      #buscarTexto
+      class="form-control me-2"
+      type="search"
+      placeholder="¿Qué estás buscando?"
+      aria-label="Search"
+      style="padding: 15px;"
+      (input)="buscarLibro(buscarTexto.value)"
+    >  
+    </form>
+</div>

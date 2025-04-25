@@ -1,0 +1,18 @@
+
+
+<div class="container" style="padding-top: 0px;">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
+        @for(h of misLibros;track h;){
+            <div class="col">
+                <div class="card h-100  text-center" style="background-color: transparent; border-style: none;">
+                    <img src={{h.image}} class="card-img-top libro-img" alt="{{h.title}}" style="border-radius: 0%;">
+                    <div class="card-body">
+                        <h6 class="card-title">{{h.title}}</h6>
+                        <p class="card.text text-muted">{{h.author}}</p>
+                    </div>
+                </div>
+    
+            </div>
+        }
+    </div>
+</div>

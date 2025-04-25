@@ -1,0 +1,65 @@
+<div  style="display: grid; place-items: center; background-color:antiquewhite;border-radius: 5px; padding:10px;">
+    <h3>Log In</h3>
+    <form [formGroup]="form" (ngSubmit)="enviarLibro()"  style="width:500px;">
+        <!--nombre-->
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input 
+            id="nombre"
+            type="text"
+            class="form-control"
+            formControlName="nombre"
+            placeholder="Ingresa tu nombre">
+        </div>
+
+        <!--email-->
+        <div class="mb-3">
+            <label for="email" class="form-label">e-mail:</label>
+            <input 
+            id="email"
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="Ingresa tu email">
+        </div>
+
+        <!--contraseña-->
+        <div class="mb-3">
+            <label for="email" class="form-label">Contraseña:</label>
+            <input 
+            id="contra"
+            type="password"
+            class="form-control"
+            formControlName="contra"
+            placeholder="Ingresa tu contraseña">
+        </div>
+
+
+        <!-- Botón de envío -->
+        <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="form.invalid">
+           Ingresar
+        </button>
+
+        @if (form.get('contra')?.touched && form.get('contra')?.errors?.['required']) {
+            <div class="alert text-danger mt-1">
+              La contraseña es obligatoria
+            </div>
+        }
+          
+        @if (form.get('contra')?.touched && form.get('contra')?.errors?.['minlength']) {
+            <div class="alert text-danger mt-1">
+              Debe tener al menos {{ form.get('contra')?.errors?.['minlength'].requiredLength }} caracteres.
+            </div>
+        }
+          
+        <!-- Mensaje de éxito -->
+        @if(exito()){
+            <div class="alert alert-success mt-3">
+                !Persona identificada¡
+            </div>
+        }
+    </form>
+</div>
